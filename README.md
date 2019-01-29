@@ -15,7 +15,7 @@ This repository was created by modifying the pre-existing Keras RetinaNet implem
 ### 1. Download the KITTI object detection dataset and organize the data in directories as below:
 ```plain
 └── KITTI_DATASET_ROOT
-    ├── raw
+    └── raw
         ├── data_object_calib
         |   ├── training
         |   └── testing
