@@ -63,7 +63,7 @@ In the above example, the `road_planes_dataset.mat` file is an (N x 4) array of 
 
 For inference on your own dataset, replace the calibration files and `road_planes_database.mat` with relevant files of your own.
 
-You can download our inference models trained on KITTI using [this link](http://cvrr.ucsd.edu/arangesh/gpp/gpp_kitti_inference_models.tar.gz).
+You can download our inference models trained on KITTI using [this link](https://drive.google.com/file/d/10ZIrDwySKl0jcFDYnEVo_s--yh88WVB8/view?usp=sharing).
 
 ## Debugging
 Creating your own dataset does not always work out of the box. There is a [`debug.py`](https://github.com/arangesh/Ground-Plane-Polling/blob/master/keras_retinanet_3D/bin/debug.py) tool to help find the most common mistakes.
