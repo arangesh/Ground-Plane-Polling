@@ -1,7 +1,7 @@
 # Ground Plane Polling for 6DoF Pose Estimation of Objects on the Road
 
 Keras implementation for training and testing the models described in [Ground Plane Polling for 6DoF Pose Estimation of Objects on the Road](http://cvrr.ucsd.edu/publications/2018/GPP.pdf).
-This repository was created by modifying the pre-existing Keras RetinaNet implementation found [here](https://github.com/fizyr/keras-retinanet). The original README from Keras Retinanet has been reproduced here relevant modifications.
+This repository was created by modifying the pre-existing Keras RetinaNet implementation found [here](https://github.com/fizyr/keras-retinanet). The original README from Keras Retinanet has been reproduced here with relevant modifications.
 
 ## Installation
 1) Clone this repository.
@@ -26,9 +26,9 @@ This repository was created by modifying the pre-existing Keras RetinaNet implem
             └── training
 ```
 
-### 2. Create modified labels for training using the MATLAB script found [here](https://github.com/fizyr/keras-retinanet#converting-a-training-model-to-inference-model).
+### 2. Create modified labels for training using the MATLAB script found [here](Ground-Plane-Polling/label_prep/create_mod_labels.m).
 
-### 3. Create train-val split using [this Python script](https://github.com/fizyr/keras-retinanet#converting-a-training-model-to-inference-model) as follows:
+### 3. Create train-val split using [this Python script](Ground-Plane-Polling/prepare_kitti_data.py) as follows:
 ```shell
 python prepare_kitti_data.py --output-dir=KITTI_DATASET_ROOT
 ```
