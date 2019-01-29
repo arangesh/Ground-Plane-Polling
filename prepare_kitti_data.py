@@ -1,8 +1,4 @@
 #!/usr/bin/env python2
-# Copyright (c) 2016-2017, NVIDIA CORPORATION.  All rights reserved.
-"""
-Prepares KITTI data for ingestion by DIGITS
-"""
 
 import argparse
 import os
