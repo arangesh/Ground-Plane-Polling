@@ -30,7 +30,7 @@ This repository was created by modifying the pre-existing Keras RetinaNet implem
 
 ### 3. Create train-val split using [this Python script](https://github.com/arangesh/Ground-Plane-Polling/blob/master/prepare_kitti_data.py) as follows:
 ```shell
-python prepare_kitti_data.py --output-dir=KITTI_DATASET_ROOT
+python3 prepare_kitti_data.py --output-dir=KITTI_DATASET_ROOT
 ```
 
 ## Training
@@ -44,12 +44,12 @@ That will ensure that your local changes will be used by the train script.
 
 The default backbone is `resnet50`. You can change this using the `--backbone=xxx` argument in the running script. For example:
 ```shell
-python keras_retinanet_3D/bin/train.py --backbone=resnet50 --batch-size=2 --random-transform kitti /path/to/kitti/dataset/root
+python3 keras_retinanet_3D/bin/train.py --backbone=resnet50 --batch-size=2 --random-transform kitti /path/to/kitti/dataset/root
 ```
 
 Trained models can't be used directly for inference. To convert a trained model to an inference model, do:
 ```shell
-python keras_retinanet_3D/bin/convert_model.py --backbone=resnet50 /path/to/training/model /path/to/save/inference/model
+python3 keras_retinanet_3D/bin/convert_model.py --backbone=resnet50 /path/to/training/model /path/to/save/inference/model
 ```
 
 ## Testing
