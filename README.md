@@ -34,7 +34,7 @@ python3 prepare_kitti_data.py --output-dir=KITTI_DATASET_ROOT
 ```
 
 ## Training
-Ground Plane Polling (GPP) models can be trained using [this](https://github.com/fizyr/keras-retinanet/blob/master/keras_retinanet/bin/train.py) script.
+Ground Plane Polling (GPP) models can be trained using [this](https://github.com/arangesh/Ground-Plane-Polling/blob/master/keras_retinanet_3D/bin/train.py) script.
 Note that the train script uses relative imports since it is inside the `keras_retinanet` package.
 If you want to adjust the script for your own use outside of this repository, you will need to switch it to use absolute imports.
 
