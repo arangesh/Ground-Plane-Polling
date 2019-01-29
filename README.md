@@ -67,5 +67,3 @@ You can download our inference models trained on KITTI using [this link](http://
 
 ## Debugging
 Creating your own dataset does not always work out of the box. There is a [`debug.py`](https://github.com/arangesh/Ground-Plane-Polling/blob/master/keras_retinanet_3D/bin/debug.py) tool to help find the most common mistakes.
-
-Particularly helpful is the `--annotations` flag which displays your annotations on the images from your dataset. Annotations are colored in green when there are anchors available and colored in red when there are no anchors available. If an annotation doesn't have anchors available, it means it won't contribute to training. It is normal for a small amount of annotations to show up in red, but if most or all annotations are red there is cause for concern. The most common issues are that the annotations are too small or too oddly shaped (stretched out).
