@@ -3,8 +3,6 @@ import setuptools
 setuptools.setup(
     name='keras-retinanet-3D',
     description='Keras implementation of RetinaNet 3D object detector.',
-    author='Akshay Rangesh',
-    author_email='arangesh@ucsd.edu',
     packages=setuptools.find_packages(),
     install_requires=['keras', 'keras-resnet', 'six', 'scipy'],
     entry_points = {
