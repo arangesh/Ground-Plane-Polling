@@ -59,7 +59,7 @@ This script can be used to generate results on the KITTI test set as follows:
 ```shell
 python3 keras_retinanet_3D/bin/run_network.py /path/to/inference/model /path/to/test/images /path/to/test/calibration/files /path/to/road_planes_database.mat /path/to/output/directory --save-images --backbone=resnet50
 ```
-In the above example, the `road_planes_dataset.mat` file is an (N x 4) array of ground planes for the KITTI dataset. Different versions of this file can be found [here](https://github.com/arangesh/Ground-Plane-Polling/tree/master/road_planes_database).
+In the above example, the `road_planes_database.mat` file is an (N x 4) array of ground planes for the KITTI dataset. Different versions of this file can be found [here](https://github.com/arangesh/Ground-Plane-Polling/tree/master/road_planes_database).
 
 For inference on your own dataset, replace the calibration files and `road_planes_database.mat` with relevant files of your own.
 
