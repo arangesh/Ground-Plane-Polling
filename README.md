@@ -35,11 +35,11 @@ python3 prepare_kitti_data.py --output-dir=KITTI_DATASET_ROOT
 
 ## Training
 Ground Plane Polling (GPP) models can be trained using [this](https://github.com/arangesh/Ground-Plane-Polling/blob/master/keras_retinanet_3D/bin/train.py) script.
-Note that the train script uses relative imports since it is inside the `keras_retinanet` package.
+Note that the train script uses relative imports since it is inside the `keras_retinanet-3D` package.
 If you want to adjust the script for your own use outside of this repository, you will need to switch it to use absolute imports.
 
-If you installed `keras-retinanet` correctly, the train script will be installed as `retinanet-train`.
-However, if you make local modifications to the `keras-retinanet` repository, you should run the script directly from the repository.
+If you installed `keras-retinanet-3D` correctly, the train script will be installed as `retinanet-train`.
+However, if you make local modifications to the `keras-retinanet-3D` repository, you should run the script directly from the repository.
 That will ensure that your local changes will be used by the train script.
 
 The default backbone is `resnet50`. You can change this using the `--backbone=xxx` argument in the running script. For example:
