@@ -429,9 +429,6 @@ def main(args=None):
             raw_image_copy = raw_image.copy()
             draw_detections_with_keypoints(raw_image, boxes, scores, labels, orientations, score_threshold=0.4)
             draw_3d_detections_from_pose(raw_image_copy, boxes[:, :4], orientations, residuals, scores, labels, locations, angles, dimensions, P, score_threshold=0.4)
-
-            #cv2.imwrite(os.path.join(output_dir, 'images', '2D_detections', os.path.basename(image_fp)), raw_image)
-            #cv2.imwrite(os.path.join(output_dir, 'images', '3D_detections', os.path.basename(image_fp)), raw_image_copy)
             cv2.imwrite(os.path.join(output_dir, 'images', 'composite', os.path.basename(image_fp)), np.vstack((raw_image, raw_image_copy)))
 
 if __name__ == '__main__':
