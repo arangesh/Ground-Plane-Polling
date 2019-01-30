@@ -85,8 +85,6 @@ def main(args=None):
         os.mkdir(os.path.join(output_dir, 'outputs', 'kitti'))
     if args.save_images:
         os.mkdir(os.path.join(output_dir, 'images'))
-        #os.mkdir(os.path.join(output_dir, 'images', '2D_detections'))
-        #os.mkdir(os.path.join(output_dir, 'images', '3D_detections'))
         os.mkdir(os.path.join(output_dir, 'images', 'composite'))
 
     for j, fn in enumerate(os.listdir(args.calib_dir)):
