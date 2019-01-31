@@ -59,7 +59,7 @@ class KittiGenerator(Generator):
         label_dir         = os.path.join(self.base_dir, subset, 'labels')
         image_dir         = os.path.join(self.base_dir, subset, 'images')
         calib_dir         = os.path.join(self.base_dir, subset, 'calibs')
-        plane_params_path = os.path.join(self.base_dir, 'road_planes_dataset.mat')
+        plane_params_path = os.path.join(self.base_dir, 'road_planes_database.mat')
 
         """
         1    type         Describes the type of object: 'Car', 'Van', 'Truck',
@@ -85,7 +85,7 @@ class KittiGenerator(Generator):
         self.ignore_regions = dict()
         self.images = []
         self.calibs = []
-        self.plane_params = scipy.io.loadmat(plane_params_path)['road_planes_dataset']
+        self.plane_params = scipy.io.loadmat(plane_params_path)['road_planes_database']
         for i, fn in enumerate(os.listdir(image_dir)):
             image_fp = os.path.join(image_dir, fn)
             label_fp = os.path.join(label_dir, fn.replace('.png', '.txt').replace('.jpg', '.txt'))
