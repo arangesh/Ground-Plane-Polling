@@ -42,7 +42,7 @@ Ground Plane Polling (GPP) models can be trained using [this](https://github.com
 Note that the train script uses relative imports since it is inside the `keras_retinanet-3D` package.
 If you want to adjust the script for your own use outside of this repository, you will need to switch it to use absolute imports.
 
-If you installed `keras-retinanet-3D` correctly, the train script will be installed as `retinanet-train`.
+If you installed `keras-retinanet-3D` correctly, the train script will be installed as `retinanet-3D-train`.
 However, if you make local modifications to the `keras-retinanet-3D` repository, you should run the script directly from the repository.
 That will ensure that your local changes will be used by the train script.
 
