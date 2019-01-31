@@ -15,16 +15,16 @@ This repository was created by modifying the pre-existing Keras RetinaNet implem
 ### 1. Download the KITTI object detection dataset and organize the data in directories as below:
 ```plain
 └── KITTI_DATASET_ROOT
-    └── raw
-        ├── data_object_calib
-        |   ├── training
-        |   └── testing
-        ├── data_object_image_2
-        |   ├── training
-        |   └── testing
-        |── data_object_label_2
-        |   └── training
-        └── road_planes_database.mat
+    |── raw
+    |   ├── data_object_calib
+    |   |   ├── training
+    |   |   └── testing
+    |   ├── data_object_image_2
+    |   |   ├── training
+    |   |   └── testing
+    |   └── data_object_label_2
+    |       └── training
+    └── road_planes_database.mat
 ```
 In the above example, the `road_planes_database.mat` file is an (N x 4) array of ground planes for the KITTI dataset. Different versions of this file can be found [here](https://github.com/arangesh/Ground-Plane-Polling/tree/master/road_planes_database).
 
