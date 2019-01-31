@@ -28,7 +28,7 @@ This repository was created by modifying the pre-existing Keras RetinaNet implem
 ```
 In the above example, the `road_planes_database.mat` file is an (N x 4) array of ground planes for the KITTI dataset. Different versions of this file can be found [here](https://github.com/arangesh/Ground-Plane-Polling/tree/master/road_planes_database).
 
-Ensure that the filename should be `road_planes_database.mat` irrespective of which ground plane database you end up using.
+Ensure that the filename is `road_planes_database.mat` irrespective of which ground plane database you end up using.
 
 ### 2. Create modified labels for training using the MATLAB script found [here](https://github.com/arangesh/Ground-Plane-Polling/blob/master/label_prep/create_mod_labels.m).
 
