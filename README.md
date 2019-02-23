@@ -56,7 +56,7 @@ Trained models can't be used directly for inference. To convert a trained model 
 python3 keras_retinanet_3D/bin/convert_model.py --backbone=resnet50 /path/to/training/model /path/to/save/inference/model
 ```
 
-## Testing
+## Inference
 An example of using the GPP network for inference can be seen in [this script](https://github.com/arangesh/Ground-Plane-Polling/blob/master/keras_retinanet_3D/bin/run_network.py).
 
 This script can be used to generate results on the KITTI test set as follows:
