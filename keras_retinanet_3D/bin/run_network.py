@@ -144,102 +144,10 @@ def main(args=None):
             X_r = keypoints[i, 6:9]
             X_t = keypoints[i, 9:12]
 
-            if orientations[i] == 0:
-                x_dir = (X_m - X_l) / np.linalg.norm(X_m - X_l)
-                y_dir = (X_m - X_t) / np.linalg.norm(X_m - X_t)
-                z_dir = (X_r - X_m) / np.linalg.norm(X_r - X_m)
-
-                x_dir_perp = np.cross(y_dir, z_dir)
-                z_dir_perp = np.cross(x_dir, y_dir)
-                diag = np.linalg.norm(X_l - X_r)
-                l_sq = diag*diag - dimensions[i, 1]*dimensions[i, 1]
-                if l_sq < 0:
-                    l = np.Inf
-                else:
-                    l = np.sqrt(l_sq)
-
-                X_l_pred = X_m - x_dir_perp * dimensions[i, 2]
-                X_r_pred = X_m + z_dir_perp * dimensions[i, 1]
-                X_tmp = X_r + (X_l - X_r) * dimensions[i, 1] * dimensions[i, 1] / (diag * diag)
-                X_m_pred = X_tmp + np.cross((X_r - X_l) / diag, keyplanes[i, :3] / np.linalg.norm(keyplanes[i, :3])) * dimensions[i, 1] * l / diag
-
-            elif orientations[i] == 1:
-                x_dir = (X_m - X_r) / np.linalg.norm(X_m - X_r)
-                y_dir = (X_m - X_t) / np.linalg.norm(X_m - X_t)
-                z_dir = (X_m - X_l) / np.linalg.norm(X_m - X_l)
-
-                x_dir_perp = np.cross(y_dir, z_dir)
-                z_dir_perp = np.cross(x_dir, y_dir)
-                diag = np.linalg.norm(X_l - X_r)
-                l_sq = diag*diag - dimensions[i, 1]*dimensions[i, 1]
-                if l_sq < 0:
-                    l = np.Inf
-                else:
-                    l = np.sqrt(l_sq)
-
-                X_l_pred = X_m - z_dir_perp * dimensions[i, 1]
-                X_r_pred = X_m - x_dir_perp * dimensions[i, 2]
-                X_tmp = X_l + (X_r - X_l) * dimensions[i, 1] * dimensions[i, 1] / (diag * diag)
-                X_m_pred = X_tmp + np.cross((X_r - X_l) / diag, keyplanes[i, :3] / np.linalg.norm(keyplanes[i, :3])) * dimensions[i, 1] * l / diag
-
-            elif orientations[i] == 2:
-                x_dir = (X_r - X_m) / np.linalg.norm(X_r - X_m)
-                y_dir = (X_m - X_t) / np.linalg.norm(X_m - X_t)
-                z_dir = (X_l - X_m) / np.linalg.norm(X_l - X_m)
-
-                x_dir_perp = np.cross(y_dir, z_dir)
-                z_dir_perp = np.cross(x_dir, y_dir)
-                diag = np.linalg.norm(X_l - X_r)
-                l_sq = diag*diag - dimensions[i, 1]*dimensions[i, 1]
-                if l_sq < 0:
-                    l = np.Inf
-                else:
-                    l = np.sqrt(l_sq)
-
-                X_l_pred = X_m + z_dir_perp * dimensions[i, 1]
-                X_r_pred = X_m + x_dir_perp * dimensions[i, 2]
-                X_tmp = X_l + (X_r - X_l) * dimensions[i, 1] * dimensions[i, 1] / (diag * diag)
-                X_m_pred = X_tmp + np.cross((X_r - X_l) / diag, keyplanes[i, :3] / np.linalg.norm(keyplanes[i, :3])) * dimensions[i, 1] * l / diag
-
-            elif orientations[i] == 3:
-                x_dir = (X_l - X_m) / np.linalg.norm(X_l - X_m)
-                y_dir = (X_m - X_t) / np.linalg.norm(X_m - X_t)
-                z_dir = (X_m - X_r) / np.linalg.norm(X_m - X_r)
-
-                x_dir_perp = np.cross(y_dir, z_dir)
-                z_dir_perp = np.cross(x_dir, y_dir)
-                diag = np.linalg.norm(X_l - X_r)
-                l_sq = diag*diag - dimensions[i, 1]*dimensions[i, 1]
-                if l_sq < 0:
-                    l = np.Inf
-                else:
-                    l = np.sqrt(l_sq)
-
-                X_l_pred = X_m + x_dir_perp * dimensions[i, 2]
-                X_r_pred = X_m - z_dir_perp * dimensions[i, 1]
-                X_tmp = X_r + (X_l - X_r) * dimensions[i, 1] * dimensions[i, 1] / (diag * diag)
-                X_m_pred = X_tmp + np.cross((X_r - X_l) / diag, keyplanes[i, :3] / np.linalg.norm(keyplanes[i, :3])) * dimensions[i, 1] * l / diag
-
-            X_all = np.stack((X_l_pred, X_m_pred, X_r_pred), axis=-1)
-            X_all = np.concatenate((X_all, np.ones((1, 3))), axis= 0)
-            x_all = P @ X_all
-            x_all = x_all[:2, :] / x_all[2, :]
-
-            err_x_l = np.linalg.norm(x_all[:, 0] - boxes[i, 4:6])
-            err_x_m = np.linalg.norm(x_all[:, 1] - boxes[i, 6:8])
-            err_x_r = np.linalg.norm(x_all[:, 2] - boxes[i, 8:10])
-
-            if err_x_l <= err_x_r:
-                if err_x_l <= err_x_m or np.isnan(err_x_m):
-                    outlier = 0
-                else:
-                    outlier = 1
+            if orientations[i] == 0 or orientations[i] == 3:
+                outlier = 2
             else:
-                if err_x_r <= err_x_m or np.isnan(err_x_m):
-                    outlier = 2
-                else:
-                    outlier = 1
-
+                outlier = 0
 
             if outlier == 0:
                 X_m = keypoints[i, 3:6]
