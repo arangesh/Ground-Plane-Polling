@@ -32,7 +32,7 @@ class Anchors(keras.layers.Layer):
             size: The base size of the anchors to generate.
             stride: The stride of the anchors to generate.
             ratios: The ratios of the anchors to generate (defaults to [0.5, 1, 2]).
-            scales: The scales of the anchors to generate (defaults to [2^0, 2^(1/3), 2^(2/3)]).
+            scales: The scales of the anchors to generate (defaults to [2^(-2/3), 2^0, 2^(1/3), 2^(2/3)]).
         """
         self.size   = size
         self.stride = stride
