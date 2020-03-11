@@ -1,6 +1,6 @@
 # Ground Plane Polling for 6DoF Pose Estimation of Objects on the Road
 
-Keras implementation for training and testing the models described in [Ground Plane Polling for 6DoF Pose Estimation of Objects on the Road](http://cvrr.ucsd.edu/publications/2018/GPP.pdf).
+Keras implementation for training and testing the models described in [Ground Plane Polling for 6DoF Pose Estimation of Objects on the Road](http://cvrr.ucsd.edu/publications/2020/GPP.pdf).
 This repository was created by modifying the pre-existing Keras RetinaNet implementation found [here](https://github.com/fizyr/keras-retinanet). The original README from Keras Retinanet has been reproduced here with relevant modifications.
 
 ## Installation
